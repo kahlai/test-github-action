@@ -44,7 +44,7 @@ jobs:
         env: 
           OC_LOGIN: ${{ secrets.OC_LOGIN }}
         run: |
-          $OC_LOGIN
+          $OC_LOGIN --insecure-skip-tls-verify
       - name: Create and expose app
         uses: redhat-actions/oc-new-app@v1
         with:
