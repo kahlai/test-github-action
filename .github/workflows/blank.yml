@@ -39,3 +39,15 @@ jobs:
           OC_LOGIN: ${{ secrets.OC_LOGIN }}
         run: |
           echo $OC_LOGIN
+
+      - name: login
+        env: 
+          OC_LOGIN: ${{ secrets.OC_LOGIN }}
+        run: |
+          $OC_LOGIN
+      - name: Create and expose app
+        uses: redhat-actions/oc-new-app@v1
+        with:
+          app_name: petclinic
+          image: quay.io/redhat-github-actions/petclinic:latest
+          namespace: default
